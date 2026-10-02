@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>photo_sait_landscape</title>
+
+    <link rel="icon" type="image/png" href="/images/logo.png">
+    <link rel="stylesheet" href="../../../static/style/XBurgeR.css" type="text/css">
+    <link rel="stylesheet" href="../../../static/style/style_for_landscape.css" type="text/css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+</head>
+<body>
+    <div id="glav" class="main_background">
+        <div class="wrapper">
+            <header class="header">
+                <div class="container">
+                    <div class="header__body">
+                        <a href="#" class="header__logo">
+                            <img src="images/logo_photo_sait.png" class="logo_image" alt="jj">
+                        </a>
+                        <div class="header__burger margin_to_right_burger">
+                            <span></span>
+                        </div>
+                        <div class="right-block">
+                            <nav class="header__menu">
+                                <ul class="header__list">
+                                    <li class="zoom_effect_for_header">
+                                        <a class="color_and_decorate_for_header_text" href="index.html">Главная</a>
+                                    </li>
+                                    <li class="zoom_effect_for_header">
+                                        <a class="color_and_decorate_for_header_text" href="#port">�����������</a>
+                                    </li>
+                                    <li class="zoom_effect_for_header">
+                                        <a class="color_and_decorate_for_header_text" href="#zak">�������� ������</a>
+                                    </li>
+                                    <li class="zoom_effect_for_header">
+                                        <a class="color_and_decorate_for_header_text" href="#iam">� ����</a>
+                                    </li>
+                                    <li class="zoom_effect_for_header">
+                                        <a class="color_and_decorate_for_header_text" href="#con">��������</a>
+                                    </li>
+
+                                </ul>
+                            </nav>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </div>
+    </div>
+            <script>
+                $(document).ready(function() {
+                $('[data-fancybox="gallery"]').fancybox({
+                buttons: [
+                "zoom",
+                "share",
+                "slideShow",
+                "fullScreen",
+                "download",
+                "thumbs",
+                "close"
+                ],
+                loop: true,
+                protect: true
+                });
+                });
+            </script>
+            <script type="text/javascript" src="libs/jquery-3.7.1.js"></script>
+            <script type="text/javascript" src="../../../static/scripts/slider_1.js"></script>
+            <script type="text/javascript" src="../../../static/scripts/gallery.js"></script>
+            <script type="text/javascript" src="../../../static/scripts/main.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script src="../../../static/scripts/burger.js"></script>
+            <script type="text/javascript" src="libs/slick-1.8.1/slick/slick.min.js"></script>
+</body>
+</html>

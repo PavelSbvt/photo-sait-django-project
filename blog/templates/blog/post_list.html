@@ -1,0 +1,333 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--</body>-->
+<!--</html>-->
+{% extends "blog/base.html" %}
+{% block content %}
+{% load static %}
+<style>
+    .background_for_title_publication{
+        background: linear-gradient(135deg, rgba(100,160,120,0.8),rgba(80,140,100,0.7) );
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 15px;
+        margin-left:auto;
+        margin-right:auto;
+        width:240px;
+        /*height:50px;*/
+    }
+    .center_block{
+        margin-left:auto;
+        margin-right:auto;
+        font-family: s;
+        font-size: 24px;
+        width:145px;
+        /*height: 40px;*/
+        /*margin-top:auto;*/
+        /*margin-bottom:auto;*/
+    }
+    .text_for_small{
+        width: fit-content;
+        font-family: s;
+        font-size: 24px;
+        /*color: #fbffe9;*/
+        /*color:rgba(100,160,120,1);*/
+        /*#6ea67f*/
+        color: rgb(104, 150, 119);
+
+    }
+    .poz_right_and_back{
+        background: linear-gradient(135deg, rgba(100,160,120,0.8),rgba(80,140,100,0.7) );
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 15px;
+        margin-left:auto;
+        width:250px;
+    }
+    .text_for_new_publication{
+        font-family: s;
+        font-size: 24px;
+        color:whitesmoke;
+    }
+    .poz_for_center_new_publication{
+        width:185px;
+        margin-left:auto;
+        margin-right:auto;
+    }
+    .title_text_for_publication{
+        font-family: b;
+        font-weight: bolder;
+        font-size: 24px;
+        color:whitesmoke;
+    }
+    .background_blok_for_title {
+        width: fit-content;
+        max-width: 100%;
+        min-height: 40px;
+        background-color: rgba(104, 150, 119, 0.6);
+        border-radius: 15px;
+        padding: 5px 30px;
+        backdrop-filter: blur(15px);
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .content_text_for_publication{
+        font-family: s;
+        font-size: 24px;
+
+        color:#f0fff4;
+    }
+    .background_blok_for_info_about_post{
+        padding-left: 15px;
+        padding-right: 20px;
+        margin-left:auto;
+        width:fit-content;
+        height:40px;
+        background-color: rgba(164, 207, 178, 0.6);
+        border-radius: 15px;
+        /*padding:0;*/
+        backdrop-filter: blur(15px);
+    }
+    .text_info_about_post{
+        margin-left:auto;
+        margin-right:auto;
+        width:fit-content;
+    }
+    .card_post{
+        margin-top:30px;
+    }
+    .blok_for_content{
+        width: fit-content;
+        margin-top:10px;
+        margin-bottom:10px;
+        margin-right:auto;
+        margin-left:auto;
+        height:50px;
+        background-color: rgba(124, 163, 163, 0.59);
+        border-radius: 15px;
+        padding:5px;
+        backdrop-filter: blur(15px);
+    }
+    .image_box{
+        padding-top:15px;
+        padding-bottom:15px;
+        width:100%;
+        display: flex;
+        justify-content: center; /* Центрирует всё содержимое по горизонтали */
+        align-items: center;
+        /*align-items: center;*/
+    }
+    .post_image{
+        /*margin-top:30px;*/
+        /*margin-bottom:30px;*/
+        /*margin-right:;*/
+        /*margin-left:auto;*/
+        border-radius:15px;
+        max-width:600px;
+        max-height: 70vh;
+        display:flex;
+        /*max-height:700px;*/
+    }
+    /*.post_image img{*/
+    /*    width: auto;*/
+    /*    height: 70%;*/
+    /*    object-fit: contain;*/
+    /*    max-width: 100%;*/
+    /*}*/
+    .img_heart{
+        height: 40px;
+        width: 64px;
+    }
+    .img_com{
+        margin: 5px 0px 0px 0px;
+        height: 30px;
+        width: 30px;
+    }
+    .img_com:hover{
+        transform: scale(1.1);
+        filter: brightness(1.0);
+
+    }
+    .img_heart:hover{
+        /*transform: scale(0.8);*/
+        transform: scale(1.2);
+        /*<img class="img_heart" src="{% static 'images/heart.png' %}" alt="heart_img">*/
+        filter: brightness(1.2);
+        cursor: cell;
+    }
+    .img_author{
+        height: 40px;
+        width: 40px;
+    }
+    /*.img_author:hover{*/
+    /*    transform:scale(0);*/
+    /*}*/
+    .background_for_img_heart{
+        margin-left: auto;
+        margin-right: auto;
+        height: 50px;
+        width: fit-content;
+        padding: 5px 15px 0px 0px;
+        /*padding-right: 10px;*/
+        border-radius: 15px;
+        background-color: #d5d5d5;
+    }
+    .comments_count{
+        color: black;
+        font-family: b;
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-left: 5px;
+    }
+    .author_text{
+        color:black;
+        font-family: b;
+        padding-bottom: 5px;
+        margin-top:auto;
+        margin-bottom: auto;
+    }
+    .pyst{
+        width: 10px;
+    }
+    .hearts_count{
+        color: black;
+        font-family: b;
+        margin-left: -13px;
+        margin-right: 10px;
+        margin-bottom: auto;
+        margin-top: auto;
+    }
+    .btn_for_like{
+        background-color: transparent;
+        border: none;
+    }
+</style>
+<script>
+        $(document).ready(function() {
+        $('[data-fancybox="gallery"]').fancybox({
+        buttons: [
+        "zoom",
+        "share",
+        "slideShow",
+        "fullScreen",
+        "download",
+        "thumbs",
+        "close"
+        ],
+        loop: true,
+        protect: true
+        });
+        });
+    </script>
+<div class="background_for_title_publication">
+    <div class="center_block">
+        <h1>публикации</h1>
+    </div>
+</div>
+<!--{% if user.is_authenticated %}-->
+<!--<div class="poz_right_and_back">-->
+<!--    <div class="poz_for_center_new_publication">-->
+<!--        <a href="{% url 'create_post' %}" class="text_for_new_publication">+ Новая публикация</a>-->
+<!--    </div>-->
+<!--</div>-->
+<!--{% endif %}-->
+
+{% for post in posts %}
+    <div class="card_post">
+        <div class="card-body">
+            <div class="background_blok_for_title">
+                <h5 class="title_text_for_publication">
+
+                        <a href="{% url 'post_detail' post.pk %}" class="title_text_for_publication">
+                            {{ post.title }}
+                        </a>
+
+                </h5>
+            </div>
+            <div class="image_box gallery-container">
+            {% if post.image %}
+                <a data-fancybox="gallery" href="{{ post.image.url }}">
+                    <img class='post_image' src="{{ post.image.url }}"   alt="{{ post.title }}">
+                </a>
+            {% else %}
+<!--                <p>Изображение отсутствует</p>-->
+            {% endif %}
+            </div>
+
+<!--            {% for img in post.images.all %}-->
+<!--            <img src="{{ img.image.url }}" width="300">-->
+<!--            {% endfor %}-->
+            <div class="background_for_img_heart flex">
+                <div>
+                    {% csrf_token %}
+                    <button type="button" class="btn_for_like" onclick="window.location.href='{% url 'like_post' post.pk %}'">
+                        {% if user in post.likes.all %}
+                            <img class="img_heart" src="{% static 'images/heart.png' %}" alt="heart_img">
+                        {% else %}
+                            <img class="img_heart" src="{% static 'images/heart_gray.png' %}" alt="heart_img">
+                        {% endif %}
+                    </button>
+                </div>
+                <div class="hearts_count">
+
+                    {{ post.total_likes }}
+                </div>
+                <div>
+                    <a href="{% url 'post_detail' post.pk %}">
+                        <img class="img_com" src="{% static 'images/com.png' %}" alt="com_img">
+                    </a>
+                </div>
+                <div class="comments_count">
+                    {{ post.comments_count }}
+                </div>
+                <div class="pyst">
+
+                </div>
+                <div class="img_author">
+                    <img class="img_author" src="{% static 'images/author.png' %}" alt="author_img">
+                </div>
+                <div class="author_text">
+                    {{ post.author }}
+                </div>
+                <div class="img_author">
+                    <img class="img_author" src="{% static 'images/cal.png' %}" alt="com_img">
+                </div>
+                <div class="author_text">
+                    {{ post.created_at|date:"d.m.Y H:i" }}
+                </div>
+            </div>
+            <div class="blok_for_content">
+                <p class="content_text_for_publication">{{ post.content|truncatewords:30 }}</p>
+            </div>
+<!--            <div class="background_blok_for_info_about_post">-->
+<!--                <div class="text_info_about_post">-->
+<!--                    <div class="text_for_small flex">-->
+<!--                        <div class="img_author">-->
+<!--                            <img class="img_com" src="{% static 'images/author.png' %}" alt="author_img">-->
+<!--                        </div>-->
+<!--                        <div>-->
+<!--                            {{ post.author }}-->
+<!--                        </div>-->
+<!--                        <div class="img_author">-->
+<!--                            <img class="img_com" src="{% static 'images/cal.png' %}" alt="com_img">-->
+<!--                        </div>-->
+<!--                        <div>-->
+<!--                            {{ post.created_at|date:"d.m.Y H:i" }}-->
+<!--                        </div>-->
+<!--&lt;!&ndash;                        Автор:  | Опубликовано: &ndash;&gt;-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+        </div>
+    </div>
+
+{% empty %}
+    <p>Пока нет ни одной публикации.</p>
+{% endfor %}
+{% endblock %}

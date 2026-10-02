@@ -1,0 +1,505 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--</body>-->
+<!--</html>-->
+{% extends "blog/base.html" %}
+{% load static %}
+{% block content %}
+<style>
+    .background_for_title_publication{
+        background: linear-gradient(135deg, rgba(100,160,120,0.8),rgba(80,140,100,0.7) );
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 15px;
+        margin-left:auto;
+        margin-right:auto;
+        width:240px;
+        /*height:50px;*/
+    }
+    .center_block{
+        margin-left:auto;
+        margin-right:auto;
+        font-family: s;
+        font-size: 24px;
+        width:224px;
+        /*height: 40px;*/
+        /*margin-top:auto;*/
+        /*margin-bottom:auto;*/
+    }
+    .center_block_for_comment{
+        margin-left:auto;
+        margin-right:auto;
+        font-family: s;
+        font-size: 24px;
+        width:180px;
+        /*height: 40px;*/
+        /*margin-top:auto;*/
+        /*margin-bottom:auto;*/
+    }
+    .text_for_small{
+        font-family: s;
+        font-size: 24px;
+        /*color: #fbffe9;*/
+        /*color:rgba(100,160,120,1);*/
+        /*#6ea67f*/
+        /*color: rgb(104, 150, 119);*/
+
+    }
+    .poz_right_and_back{
+        background: linear-gradient(135deg, rgba(100,160,120,0.8),rgba(80,140,100,0.7) );
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 15px;
+        margin-left:auto;
+        width:250px;
+    }
+    .text_for_new_publication{
+        font-family: s;
+        font-size: 24px;
+        color:whitesmoke;
+    }
+    .poz_for_center_new_publication{
+        width:185px;
+        margin-left:auto;
+        margin-right:auto;
+    }
+    .title_text_for_publication{
+        font-family: b;
+        font-size: 24px;
+        color:whitesmoke;
+    }
+    .background_blok_for_title {
+        width: fit-content;
+        max-width: 100%;
+        min-height: 40px;
+        background-color: rgba(104, 150, 119, 0.6);
+        border-radius: 15px;
+        padding: 5px 30px;
+        backdrop-filter: blur(15px);
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .content_text_for_publication{
+        font-family: s;
+        font-size: 24px;
+        color:#f0fff4;
+    }
+    .background_blok_for_info_about_post{
+        margin-left:auto;
+        width:50%;
+        height:40px;
+        background-color: rgba(164, 207, 178, 0.6);
+        border-radius: 15px;
+        padding:0;
+        backdrop-filter: blur(15px);
+    }
+    .text_info_about_post{
+        margin-left:auto;
+        margin-right:auto;
+        width:423px;
+    }
+    .card_post{
+        margin-top:30px;
+    }
+    .blok_for_content{
+        width:1000px;
+        margin-top:10px;
+        margin-bottom:10px;
+        margin-right:auto;
+        margin-left:auto;
+        height:50px;
+        background-color: rgba(163, 205, 178, 0.59);
+        border-radius: 15px;
+        padding:5px;
+        backdrop-filter: blur(15px);
+    }
+    .background_block_for_count_comments{
+        margin-top: 20px;
+        width:230px;
+        height:38px;
+        background-color: rgba(200, 127, 127, 0.6);
+        border-radius: 15px;
+        padding-top: 8px;
+        padding-left: 20px;
+
+        backdrop-filter: blur(15px);
+    }
+
+    .background_for_coments_show{
+         margin-right:auto;
+         margin-left:auto;
+        width:600px;
+
+        background-color: rgba(190, 197, 174, 0.22);
+        border-radius: 15px;
+        padding: 15px 15px 15px 15px;
+        /*padding:5px 0 0 0;*/
+        backdrop-filter: blur(15px);
+    }
+    .block_to_add_com{
+        border-radius: 15px;
+        background-color: rgba(239, 248, 217, 0.6);
+        margin-top:15px;
+        margin-bottom:15px;
+    }
+    .background_block_for_add_comment{
+        margin-right: auto;
+        width:226px;
+        height:36px;
+        padding: 5px 0 0 0;
+        border-radius: 15px;
+        margin-bottom: 10px;
+        background-color: rgba(187, 228, 202, 0.59);
+    }
+    .color_and_decorate_text{
+        font-family: b;
+        color:white;
+        font-size:18px;
+    }
+    .color_and_decorate_text_return{
+        font-family: b;
+        color:white;
+        font-size:22px;
+    }
+    .text_for_add_comment{
+        font-family: b;
+        padding: 0 5px 0 5px;
+    }
+    .bottom_to_add_comment{
+        width:100px;
+        height:25px;
+        border-radius:10px;
+        background-color: rgba(163, 205, 178, 0.59);
+        margin: 10px;
+        border:0;
+    }
+    .bottom_to_add_comment:hover{
+        opacity: 0.8;
+        transform: scale(0.9);
+    }
+    .bottom_to_return_to_base{
+        width:150px;
+        height:35px;
+        border-radius:10px;
+        background-color: rgba(149, 189, 163, 0.45);
+        margin: 10px;
+        border:0;
+    }
+    .bottom_to_return_to_base:hover{
+        opacity: 0.8;
+        transform: scale(0.9);
+    }
+    .back_block_for_form_comment{
+        margin-left:auto;
+        width:50%;
+        height:40px;
+        background-color: rgba(164, 207, 178, 0.6);
+        border-radius: 15px;
+        padding:0;
+        backdrop-filter: blur(15px);
+    }
+    .image_box{
+        padding-top:15px;
+        padding-bottom:15px;
+        width:100%;
+        display: flex;
+        justify-content: center; /* Центрирует всё содержимое по горизонтали */
+        align-items: center;
+        /*align-items: center;*/
+    }
+    .post_image{
+        /*margin-top:30px;*/
+        /*margin-bottom:30px;*/
+        /*margin-right:;*/
+        /*margin-left:auto;*/
+        border-radius:15px;
+        width:600px;
+        /*max-height:700px;*/
+
+    }
+    .block_info_detail{
+        width: 500px;
+        color: black;
+        height: 40px;
+        border-radius: 15px;
+        background-color: white;
+        margin-left: auto;
+        margin-right: auto;
+        font-family: b;
+        padding-right: 10px;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+    .img_heart{
+        height: 40px;
+        width: 64px;
+    }
+    .img_com{
+        margin: 5px 0px 0px 0px;
+        height: 30px;
+        width: 30px;
+    }
+    .img_com:hover{
+        transform: scale(1.1);
+        filter: brightness(1.0);
+
+    }
+    .img_heart:hover{
+        /*transform: scale(0.8);*/
+        transform: scale(1.2);
+        /*<img class="img_heart" src="{% static 'images/heart.png' %}" alt="heart_img">*/
+        filter: brightness(1.2);
+        cursor: cell;
+    }
+    .img_author{
+        height: 40px;
+        width: 40px;
+    }
+    /*.img_author:hover{*/
+    /*    transform:scale(0);*/
+    /*}*/
+    .background_for_img_heart{
+        margin-left: auto;
+        margin-right: auto;
+        height: 50px;
+        width: fit-content;
+        padding: 5px 15px 0px 0px;
+        /*padding-right: 10px;*/
+        border-radius: 15px;
+        background-color: #d5d5d5;
+    }
+    .comments_count{
+        color: black;
+        font-family: b;
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-left: 5px;
+    }
+    .author_text{
+        color:black;
+        font-family: b;
+        padding-bottom: 5px;
+        margin-top:auto;
+        margin-bottom: auto;
+    }
+    .pyst{
+        width: 20px;
+    }
+    .hearts_count{
+        color: black;
+        font-family: b;
+        margin-left: -13px;
+        margin-right: 10px;
+        margin-bottom: auto;
+        margin-top: auto;
+    }
+    .text_v{
+        margin-top:auto;
+        margin-bottom:auto;
+        font-family: s;
+        font-size: 24px;
+        width: fit-content;
+    }
+    .btn_for_like{
+        background-color: transparent;
+        border: none;
+    }
+    .fraze{
+        width: fit-content;
+        margin-bottom: auto;
+        margin-top: auto;
+        color:  black;
+    }
+    .background_for_phraze{
+        width: fit-content;
+        height:auto;
+        background-color: white;
+        border-radius: 15px;
+        padding-right: 15px;
+    }
+    .main_detail{
+        margin: 10px;
+    }
+
+</style>
+<script>
+        $(document).ready(function() {
+        $('[data-fancybox="gallery"]').fancybox({
+        buttons: [
+        "zoom",
+        "share",
+        "slideShow",
+        "fullScreen",
+        "download",
+        "thumbs",
+        "close"
+        ],
+        loop: true,
+        protect: true
+        });
+        });
+    </script>
+<div class="row">
+    <div class="col-md-8">
+        <div class="background_blok_for_title">
+<!--            <div class="blok_for_content">-->
+            <div>
+                <h1 class="title_text_for_publication">{{ post.title }}</h1>
+<!--            </div>-->
+            </div>
+        </div>
+        <div class="image_box gallery-container">
+            {% if post.image %}
+                <a data-fancybox="gallery" href="{{ post.image.url }}">
+                    <img class='post_image' src="{{ post.image.url }}"   alt="{{ post.title }}">
+                </a>
+            {% else %}
+<!--                <p>Изображение отсутствует</p>-->
+            {% endif %}
+            </div>
+        <div class="blok_for_content">
+            <p class="content_text_for_publication">{{ post.content }}</p>
+        </div>
+        <div class="flex block_info_detail jc-sb">
+<!--            <div class="background_blok_for_info_about_post">-->
+
+                <div class="flex block_author">
+                    <div class="img_author">
+                        <img class="img_author" src="{% static 'images/author.png' %}" alt="author_img">
+                    </div>
+                    <div>
+                        <div class="text_v">
+                            {{ post.author }}
+                        </div>
+                    </div>
+                </div>
+                <div class="flex">
+                    <div class="img_author">
+                        <img class="img_author" src="{% static 'images/cal.png' %}" alt="com_img">
+                    </div>
+                    <div >
+                        <div class="text_v">
+                            {{ post.created_at|date:"d.m.Y H:i" }}
+                        </div>
+                    </div>
+                </div>
+<!--            </div>-->
+<!--            <div class="background_block_for_count_comments">-->
+                <div class="flex">
+                    <div>
+                        <img class="img_com" src="{% static 'images/com.png' %}" alt="com_img">
+                    </div>
+                    <a class="text_v">{{ comments.count }}</a>
+                </div>
+
+                <div class="flex">
+                    <div>
+                        {% csrf_token %}
+                        <button type="button" class="btn_for_like" onclick="window.location.href='{% url 'like_post' post.pk %}'">
+                            {% if user in post.likes.all %}
+                                <img class="img_heart" src="{% static 'images/heart.png' %}" alt="heart_img">
+                            {% else %}
+                                <img class="img_heart" src="{% static 'images/heart_gray.png' %}" alt="heart_img">
+                            {% endif %}
+                        </button>
+                    </div>
+                    <div class="hearts_count">
+
+                        {{ post.total_likes }}
+                    </div>
+                </div>
+<!--            </div>-->
+        </div>
+
+        {% for comment in comments %}
+        <div class="background_for_coments_show">
+            <div class="card mb-2">
+                <div class="card-body">
+                    <div class="flex block_info_with_icon background_for_phraze">
+                        <div class="img_author">
+                            <img class="img_author" src="{% static 'images/author.png' %}" alt="author_img">
+                        </div>
+
+                        <div class="fraze">{{ comment.author }}</div>
+
+                    </div>
+                    <div class="main_detail">
+                        <p class="mb-0 mt-1">{{ comment.text }}</p>
+                    </div>
+                    <div class="flex background_for_phraze">
+                        <div class="img_author">
+                            <img class="img_author" src="{% static 'images/cal.png' %}" alt="com_img">
+                        </div>
+                        <div class="text-muted fraze">{{ comment.created_at|date:"d.m.Y H:i" }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="center_block">
+            <div class="background_block_for_count_comments">
+                <p class="color_and_decorate_text">Пока нет комментариев</p>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="block_to_add_com">
+            <div class="background_block_for_add_comment">
+                <h5 class="text_for_add_comment">Добавить комментарий</h5>
+            </div>
+    <!--        <form method="post">-->
+    <!--            <input type="hidden" name="csrfmiddlewaretoken" value="p3SjT8ysG5LhchOuBa6T4T1jtWNVIV7vOgcNZvQ9thBDeYVuvS4BxTpdQ1MiKxM6">-->
+    <!--            <p>-->
+    <!--    <label for="id_author">Автор:</label>-->
+    <!--    <input type="text" name="author" class="form-control" placeholder="Ваше имя" maxlength="100" required="" id="id_author">-->
+
+
+    <!--  </p>-->
+
+
+    <!--  <p>-->
+    <!--    <label for="id_text">Комментарий:</label>-->
+    <!--    <textarea name="text" cols="40" rows="3" class="form-control" placeholder="Ваш комментарий" required="" id="id_text"></textarea>-->
+
+
+
+
+    <!--  </p>-->
+    <!--            <button type="submit" class="btn btn-primary">Отправить</button>-->
+    <!--        </form>-->
+            <form method="post">
+<!--                <div class="back_block_for_form_comment">-->
+<!--                    {% csrf_token %}-->
+<!--                </div>-->
+<!--                <div class="back_block_for_form_comment">-->
+<!--                    {{ form.as_p }}-->
+<!--                </div>-->
+
+                {% csrf_token %}
+                <div class="main_detail">
+                    <p>
+                        <label for="{{ form.author.id_for_label }}">Автор:</label>
+                        {{ form.author }}
+                    </p>
+                    <p>
+                        <label for="{{ form.text.id_for_label }}">Текст:</label>
+                        {{ form.text }}
+                    </p>
+                </div>
+                <button class="bottom_to_add_comment"><a class="color_and_decorate_text">Отправить</a></button>
+            </form>
+        </div>
+        <div>
+            <button  class="bottom_to_return_to_base">
+                <a class="color_and_decorate_text_return" href="{% url 'base' %}">вернуться</a>
+            </button>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

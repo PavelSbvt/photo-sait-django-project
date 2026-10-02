@@ -1,0 +1,186 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--</body>-->
+<!--</html>-->
+{% extends "blog/base.html" %}
+{% block content %}
+<style>
+    .title_for_form {
+    margin-left: auto;
+    margin-right: auto;
+    width: 409px;
+    font-size: 32px;
+    margin-bottom: 15px;
+    color:white;
+    font-family:b;
+}
+.button_for_form {
+    background: linear-gradient(45deg, #5fc2d9, #3e96e3);
+    border-radius: 20px;
+    border: none;
+    padding: 10px;
+    transition: transform 0.2s;
+    cursor: pointer;
+    margin-top:15px
+}
+
+    .button_for_form:hover {
+        background: linear-gradient(45deg, #e74c3c, #f39c12);
+        transform: scale(1.04);
+    }
+    .width_button_in_form{
+        margin-top: -45px;
+        margin-left:auto;
+        margin-right:auto;
+        width:120px;
+    }
+    .object_in_form{
+        margin-left:auto;
+        margin-right:auto;
+        justify-content: space-between;
+  /*            font-family: b;*/
+  /*font-size: 20px;*/
+  /*color: white;*/
+  /*width: 100%;*/
+  /*!*border: 2px #a3d96e solid;*!*/
+  /*border-radius: 20px;*/
+  /*!*border: 2px solid transparent;*!*/
+  /*border-image: linear-gradient(to right bottom, #98e6cf, #87ceeb) 1;*/
+  /*border: 1px solid rgba(255, 255, 255, 0.2);*/
+  /*box-shadow: inset 0 0 0 1px rgba(152, 230, 207, 0.3);*/
+  /*background: linear-gradient(150deg, #8bc34a, #ccf98e);*/
+  /*!*background: linear-gradient(to right bottom, #98e6cf, #87ceeb);*!*/
+  /*backdrop-filter: blur(15px);*/
+  /*padding: 5px 20px;*/
+    }
+    textarea{
+        font-family: b;
+        font-size: 20px;
+        color: white;
+        width: 100%;
+        /*border: 2px #a3d96e solid;*/
+        border-radius: 20px;
+        /*border: 2px solid transparent;*/
+        border-image: linear-gradient(to right bottom, #98e6cf, #87ceeb) 1;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: inset 0 0 0 1px rgba(152, 230, 207, 0.3);
+        background: linear-gradient(135deg, rgba(100,160,120,0.8),rgba(80,140,100,0.7) );
+        /*background: linear-gradient(to right bottom, #98e6cf, #87ceeb);*/
+        backdrop-filter: blur(15px);
+        padding: 5px 20px;
+    }
+    .publication_to_up{
+        margin-bottom:100px;
+    }
+    .section_for_post_create{
+        /*max-width: 1200px;*/
+        height: auto;
+      /*margin: 0 auto;*/
+      /*!*background-color: rgba(111, 179, 133, 1);*!*/
+      /*!*background: linear-gradient(45deg, rgba(#66bb6a, 0.7), rgba(#8dd35f,0.8));*!*/
+      /*!*background: linear-gradient(45deg, rgba(76, 196, 92, 0.7), rgba(150, 230, 85, 0.7));*!*/
+      /*background: linear-gradient(45deg, rgba(225,255,235,0.8), rgba(205,245,225,0.75), rgba(185,235,215,0.7));*/
+      /*backdrop-filter: blur(15px);*/
+      /*!*padding: 2rem;*!*/
+      /*box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);*/
+      /*border: 1px solid rgba(200,230,220,0.4);*/
+      /*border-radius: 15px;*/
+      /*padding: 30px;*/
+      /*color: white;*/
+    }
+    .poz_block{
+        width:60vw;
+        margin-left:auto;
+        margin-right:auto;
+    }
+    .color_and_decorate_text{
+        font-family: b;
+        font-size: 32px;
+        color: white;
+        text-shadow: 1px 1px 1px rgba(100,160,120,0.3);
+    }
+    .color_and_decorate_text_simple{
+        font-family: b;
+        font-size: 22px;
+        color: white;
+        text-shadow: 1px 1px 1px rgba(100,160,120,0.3);
+    }
+    .bottom_to_return_to_base{
+        width:150px;
+        height:35px;
+        border-radius:10px;
+        background-color: rgba(149, 189, 163, 0.45);
+        /*margin: 10px;*/
+        border:0;
+        /*bottom: 120px;*/
+        /*margin:5px;*/
+    }
+    .bottom_to_return_to_base:hover{
+        opacity: 0.8;
+        transform: scale(0.9);
+    }
+    .color_and_decorate_text_return{
+        font-family: b;
+        color:white;
+        font-size:22px;
+    }
+    .input{
+        /*background-color: green;*/
+        width: 60px;
+        height: 25px;
+    }
+    .input_photo{
+        gap: 10px;
+        width: 210px;
+        height: auto;
+        margin: 5px 0;
+    }
+</style>
+<div  class="section_for_post_create">
+    <form action="" method="POST" id="form-1" enctype="multipart/form-data">
+        <div class="flex fd-c for-form">
+            <p class="title_for_form color_and_decorate_text" id="zak">Создать новую публикацию</p>
+            {% csrf_token %}
+            <div class="object_in_form">
+                <div class="poz_block">
+                    <label for="title" class="color_and_decorate_text_simple">Заголовок</label>
+                </div>
+<!--                <input type="text" name="title" id="title" class="form-control" required>-->
+                <textarea type="text" name="title" id="title" rows="1" class="form-control" required></textarea>
+            </div>
+            <div class="object_in_form">
+                <div class="poz_block">
+                    <label for="content" class="color_and_decorate_text_simple">Содержание</label>
+                </div>
+                <textarea name="content" id="content" rows="20" class="form-control" required></textarea>
+            </div>
+<!--            { form.as_p }}-->
+            <div class="flex input_photo">
+                <div>
+                    <a>Добавить фото</a>
+                </div>
+                <div>
+                    <input type="file" name="image" accept="image/*" class="input">
+                </div>
+            </div>
+            <div class="width_button_in_form">
+                <button class="button_for_form" id="form-button" type="submit"><p class="button_text">Опубликовать</p></button>
+            </div>
+        </div>
+        <div>
+            <button  class="bottom_to_return_to_base">
+                <a class="color_and_decorate_text_return" href="{% url 'base' %}">вернуться</a>
+            </button>
+
+        </div>
+    </form>
+
+
+</div>
+{% endblock %}
